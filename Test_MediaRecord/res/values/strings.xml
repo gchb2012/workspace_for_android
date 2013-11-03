@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Test_MediaRecord</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="btn_start_record">Start Record</string>
+    <string name="btn_stop_record">Stop Record</string>
+
+</resources>
