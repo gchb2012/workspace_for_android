@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fd_dialog_layout"
+    android:layout_width="100px"
+    android:layout_height="200px"
+    >
+    
+    <RelativeLayout 
+        android:id="@+id/layout_dialog_title"
+        android:layout_width="300px"
+        android:layout_height="80px"
+        android:background="@drawable/alert_dialog_titlebar_bg" >
+        
+        <TextView
+        android:id="@+id/fd_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
+        android:text="Title"
+        />
+        
+    </RelativeLayout>
+
+	<RelativeLayout 
+	    android:id="@+id/layout_dialog_content"
+        android:layout_width="300px"
+        android:layout_height="140px"
+        android:layout_below="@id/layout_dialog_title"
+        android:background="@drawable/alert_dialog_titlebar_content_bg" >
+        
+        <TextView
+        android:id="@+id/fd_dialog_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
+        android:text="Content"
+        />
+        
+    </RelativeLayout>
+	
+	<RelativeLayout 
+	    android:layout_width="300px"
+	    android:layout_height="80px"
+	    android:background="@drawable/alert_dialog_bottombar_bg"
+	    android:layout_below="@id/layout_dialog_content">
+        
+	    <Button 
+	        android:layout_width="250px"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentLeft="true"
+	    	android:text="OK"/>
+	    
+	    <Button 
+	        android:layout_width="250px"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentRight="true"
+	    	android:text="Cancel"/>
+	    
+	</RelativeLayout>
+
+</RelativeLayout>

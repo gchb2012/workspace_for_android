@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fd_dialog_layout"
+    android:layout_width="575px"
+    android:layout_height="252px"
+    >
+
+    <TextView
+        android:id="@+id/fd_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="20px"
+        android:text="select_mode"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+    
+<!--     <RadioGroup -->
+<!--         android:id="@+id/fd_dialog_radioGroup" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/fd_dialog_title" -->
+<!--         android:checkedButton="@+id/fd_radio_landscape" > -->
+
+<!--         <RadioButton -->
+<!--             android:id="@+id/fd_radio_landscape" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignParentRight="true" -->
+<!--             android:text="Landscape" -->
+<!--             android:textSize="20sp" /> -->
+
+<!--         <RadioButton -->
+<!--             android:id="@+id/fd_radio_portrait" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignParentRight="true" -->
+<!--             android:text="Portrait" -->
+<!--             android:textSize="20sp" /> -->
+<!--     </RadioGroup> -->
+
+	<RelativeLayout 
+	    android:id="@+id/land_item_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="20px"
+	    android:layout_below="@id/fd_dialog_title">
+	    
+	    <ImageView 
+	        android:id="@+id/land_item_icon"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/horizontal_icon"/>
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="20px"
+	        android:layout_toRightOf="@id/land_item_icon"
+	        android:text="land_mode"
+	        android:textColor="#ffffff"
+	        android:textSize="20sp"/>
+	    
+	    <RadioButton 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:src="@drawable/btn_radio"/>
+	</RelativeLayout>
+	
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="20px"
+	    android:layout_below="@id/land_item_layout">
+	    
+	    <ImageView 
+	        android:id="@+id/port_item_icon"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/vertical_icon"/>
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="20px"
+	        android:layout_toRightOf="@id/port_item_icon"
+	        android:text="protrait_mode"
+	        android:textColor="#ffffff"
+	        android:textSize="20sp"/>
+	    
+	    <RadioButton 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:src="@drawable/btn_radio"/>
+	</RelativeLayout>
+
+</RelativeLayout>
