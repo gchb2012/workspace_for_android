@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView 
+        android:id="@+id/tv_back_to_previous"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_previous"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip" />
+	    
+	<ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/tv_back_to_previous"
+        android:scrollingCache="false"
+        android:listSelector="@android:color/transparent"
+        android:fadingEdge="none"
+        android:scrollbarStyle="outsideOverlay"
+        android:layout_margin="10dip"/>
+	
+</RelativeLayout>
