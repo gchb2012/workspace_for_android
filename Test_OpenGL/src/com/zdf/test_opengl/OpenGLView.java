@@ -1,4 +1,4 @@
-package com.zdf.OpenGLView;
+package com.zdf.test_opengl;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;

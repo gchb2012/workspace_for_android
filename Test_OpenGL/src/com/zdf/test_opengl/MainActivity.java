@@ -1,4 +1,4 @@
-package com.zdf.TestOpenGL;
+package com.zdf.test_opengl;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,10 +9,9 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zdf.OpenGLView.OpenGLView;
-import com.zdf.OpenGLView.Utils.DataManager;
+import com.zdf.test_opengl.utils.DataManager;
 
-public class TestOpenGL extends Activity {
+public class MainActivity extends Activity {
 	private OpenGLView mOpenGLView;
 
 	/** Called when the activity is first created. */

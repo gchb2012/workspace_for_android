@@ -1,4 +1,4 @@
-package com.zdf.OpenGLView;
+package com.zdf.test_opengl;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -12,8 +12,8 @@ import android.opengl.GLU;
 import android.opengl.GLUtils;
 import android.util.Log;
 
-import com.zdf.OpenGLView.Utils.BufferUtil;
-import com.zdf.OpenGLView.Utils.DataManager;
+import com.zdf.test_opengl.utils.BufferUtil;
+import com.zdf.test_opengl.utils.DataManager;
 
 public class OpenGLRenderer implements Renderer {
 	private float mRed, mGreen, mBlue;

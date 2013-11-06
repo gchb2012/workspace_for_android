@@ -1,4 +1,4 @@
-package com.zdf.OpenGLView.Utils;
+package com.zdf.test_opengl.utils;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

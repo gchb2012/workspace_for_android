@@ -1,11 +1,11 @@
-package com.zdf.OpenGLView.Utils;
+package com.zdf.test_opengl.utils;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
-import com.zdf.TestOpenGL.R;
+import com.zdf.test_opengl.R;
 
 public class DataManager {
 	private static Bitmap mBitmap;
