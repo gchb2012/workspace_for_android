@@ -6,11 +6,9 @@ import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLSurfaceView.Renderer;
 import android.opengl.GLU;
 
-import com.zdf.test_opengl_model.shape.Cube;
 import com.zdf.test_opengl_model.shape.Group;
-import com.zdf.test_opengl_model.shape.Mesh;
-import com.zdf.test_opengl_model.shape.Plane;
 import com.zdf.test_opengl_model.shape.Icosahedron;
+import com.zdf.test_opengl_model.shape.Mesh;
 
 public class OpenGLRenderer implements Renderer {
 	private Mesh root;
