@@ -16,7 +16,6 @@ import com.zdf.test_opengl_sensor.shape.Mesh;
 public class OpenGLRenderer implements Renderer {
 	SensorMonitor mSensorMonitor = null;
 	private Mesh mRoot;
-	private float[] mAngles = new float[3];
 	
 	public OpenGLRenderer() {
 		Group group = new Group();
@@ -65,17 +64,23 @@ public class OpenGLRenderer implements Renderer {
 	
 	@Override
 	public void onDrawFrame(GL10 gl) {
-		mAngles = getRotateAngles();
-		if (null == mAngles)
-			return;
-		
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glLoadIdentity();
 		
-		gl.glTranslatef(0, 0, -4);
-		gl.glRotatef(-mAngles[1], 1, 0, 0);
-		gl.glRotatef(mAngles[0], 0, 1, 0);
-		gl.glRotatef(-mAngles[2], 0, 0, 1);
+		gl.glTranslatef(0, 0, -6);
+		
+//		float[] angles = getRotateAngles();
+//		if (null != angles) {
+//			gl.glRotatef(angles[1], 1, 0, 0);
+//			gl.glRotatef(-angles[0], 0, 1, 0);
+//			gl.glRotatef(-angles[2], 0, 0, 1);
+//		}
+		
+		float[] rotationMatrix = getRotationMatrix();
+		if (null != rotationMatrix) {
+			gl.glMultMatrixf(rotationMatrix, 0);
+		}
+		
 		mRoot.draw(gl);
 	}
 	
@@ -97,5 +102,12 @@ public class OpenGLRenderer implements Renderer {
 		rAngles[2] = (float) (180 * angleValues[2] / Math.PI);
 		
 		return rAngles;
+	}
+	
+	public float[] getRotationMatrix() {
+		if (null == mSensorMonitor)
+			return null;
+		
+		return mSensorMonitor.getRotationMatrix();
 	}
 }

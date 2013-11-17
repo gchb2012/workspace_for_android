@@ -14,11 +14,13 @@ public class SensorMonitor implements SensorEventListener {
 	private Sensor mGyroSensor = null;
 	private Sensor mMagSensor = null;
 	private Sensor mGravSensor = null;
+	private Sensor mLacSensor = null;
 	private Sensor mRotSensor = null;
 	private Sensor mPxySensor = null;
 	
 	private final float N2S = 1e-9f;
 	private final float[] mAngleValues = new float[3];
+	private final float[] mRotationMatrix = new float[16];
 
 	public SensorMonitor(Context context) {
 		mContext = context;
@@ -38,6 +40,8 @@ public class SensorMonitor implements SensorEventListener {
 				.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 		// 重力加速度
 		mGravSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+		// 线性加速度
+		mLacSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 		// 旋转向量
 		mRotSensor = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
@@ -62,6 +66,14 @@ public class SensorMonitor implements SensorEventListener {
 		if (!bRet) {
 			Log.e("zdf", "AccSensor register failed!");
 		}
+		
+		// Gyroscope
+		if (mGyroSensor != null) {
+			bRet = mSensorManager.registerListener(this, mGyroSensor, rate);
+		}
+		if (!bRet) {
+			Log.e("zdf", "GyroSensor register failed!");
+		}
 
 		// Magnetometer
 		if (mSensorManager != null) {
@@ -71,14 +83,6 @@ public class SensorMonitor implements SensorEventListener {
 			Log.e("zdf", "MagSensor register failed!");
 		}
 
-		// Gyroscope
-		if (mGyroSensor != null) {
-			bRet = mSensorManager.registerListener(this, mGyroSensor, rate);
-		}
-		if (!bRet) {
-			Log.e("zdf", "GyroSensor register failed!");
-		}
-
 		// Gravity
 		if (mGravSensor != null) {
 			bRet = mSensorManager.registerListener(this, mGravSensor, rate);
@@ -86,10 +90,18 @@ public class SensorMonitor implements SensorEventListener {
 		if (!bRet) {
 			Log.e("zdf", "GravSensor register failed!");
 		}
+		
+		// Linear Accelerometer
+		if (mLacSensor != null) {
+			bRet = mSensorManager.registerListener(this, mLacSensor, rate);
+		}
+		if (!bRet) {
+			Log.e("zdf", "mLacSensor register failed!");
+		}
 
 		// Rotation Vector
 		if (mRotSensor != null) {
-			bRet = mSensorManager.registerListener(this, mRotSensor, rate);
+			bRet = mSensorManager.registerListener(this, mRotSensor, SensorManager.SENSOR_DELAY_FASTEST);
 		}
 		if (!bRet) {
 			Log.e("zdf", "RotationVector Sensor register failed!");
@@ -120,13 +132,16 @@ public class SensorMonitor implements SensorEventListener {
 		
 		switch (sensorType) {
 		case Sensor.TYPE_ACCELEROMETER:
-
+//			Log.v("zdf", "onSensorChanged(TYPE_ACCELEROMETER), values[0] = " + values[0]);
+//			Log.v("zdf", "onSensorChanged(TYPE_ACCELEROMETER), values[1] = " + values[1]);
+//			Log.v("zdf", "onSensorChanged(TYPE_ACCELEROMETER), values[2] = " + values[2]);
 			break;
 
 		case Sensor.TYPE_GYROSCOPE:
 			// 陀螺仪： 三坐标轴上的旋转角度分量（rad/s）
 			if (0 == mLastTime) {
 				mLastTime = timestamp;
+				break;
 			}
 			long curTime = timestamp;
 			float deltatime = (curTime - mLastTime) * N2S;
@@ -153,8 +168,12 @@ public class SensorMonitor implements SensorEventListener {
 
 		case Sensor.TYPE_GRAVITY:
 			break;
+			
+		case Sensor.TYPE_LINEAR_ACCELERATION:
+			break;
 
 		case Sensor.TYPE_ROTATION_VECTOR:
+			SensorManager.getRotationMatrixFromVector(mRotationMatrix , event.values);
 			break;
 
 		case Sensor.TYPE_PROXIMITY:
@@ -172,6 +191,10 @@ public class SensorMonitor implements SensorEventListener {
 	
 	public float[] getAngleValues() {
 		return mAngleValues;
+	}
+	
+	public float[] getRotationMatrix() {
+		return mRotationMatrix;
 	}
 
 }
